@@ -1,1 +1,1 @@
-# Yay_or_Nay_discussion_site
+# Yay or Nay discussion site
