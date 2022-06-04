@@ -24,7 +24,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const post = await Post.create(req.body.title, req.body.body, req.body.author, req.body.topic, req.body.date)
-        res.json(dog)
+        res.json(post)
     } catch(err) {
         res.status(404).json({err})
     }
