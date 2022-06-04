@@ -7,7 +7,6 @@ class Post {
         this.title = data.title
         this.body = data.body
         this.author = data.author
-        this.url = data.url
         this.topic = data.topic
         this.interactions = {
             thumbs_up: 0,
@@ -15,7 +14,7 @@ class Post {
             meh: 0,
         }
         this.comments = []
-        this.date = new Date()
+        this.date = data.date
     }
     static get getAllPosts() {
         return new Promise (async (resolve, reject) => {
@@ -42,11 +41,11 @@ class Post {
             }
         })
     }
-    static create(title, body, author, url, topic, interactions, comments, date){
+    static create(title, body, author, topic, interactions, comments, date){
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init()
-                let postData = await db.collection('posts').insertOne({ title, body, author, url, topic, interactions, comments, date })
+                let postData = await db.collection('posts').insertOne({ title, body, author, topic, interactions, comments, date })
                 let newPost = new Post(postData.ops[0])
                 resolve(newPost)
             }catch(err){
