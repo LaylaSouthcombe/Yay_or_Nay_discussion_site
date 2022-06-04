@@ -40,6 +40,14 @@ router.patch('/:id', async (req, res) => {
     }
 })
 
-//title, body, author, topic, interactions, comments, date
+router.delete('/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        await post.destroy()
+        res.status(204).json('Post deleted')
+    } catch(err) {
+        res.status(500).json({err})
+    }
+})
 
 module.exports = router;
