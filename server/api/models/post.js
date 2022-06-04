@@ -15,7 +15,7 @@ class Post {
             meh: 0,
         }
         this.comments = []
-        this.date = new Date()
+        this.date = data.date
     }
     static get getAllPosts() {
         return new Promise (async (resolve, reject) => {
