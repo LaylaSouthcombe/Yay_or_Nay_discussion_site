@@ -30,6 +30,15 @@ router.post('/', async (req, res) => {
     }
 })
 
+router.patch('/:id', async (req, res) => {
+    try {
+        const post = await Post.findById(req.params.id)
+        const updatedPost = await post.update()
+        res.json({post: updatedPost})
+    } catch(err) {
+        res.status(500).json({err})
+    }
+})
 
 //title, body, author, topic, interactions, comments, date
 
