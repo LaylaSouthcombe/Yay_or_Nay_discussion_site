@@ -54,6 +54,18 @@ class Post {
             }
         })
     }
+    update() {
+        return new Promise (async (resolve, reject) => {
+            try {
+                const db = await init()
+                let updatedPostData = await db.collection('posts').findOneAndUpdate({ _id: ObjectId(this.id) })
+                let updatedPost = new Post(updatedPostData.value)
+                resolve(updatedPost)
+            }catch(err){
+                reject("Error updating post")
+            }
+        })
+    }
 
 
 
