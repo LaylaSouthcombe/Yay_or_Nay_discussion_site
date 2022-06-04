@@ -66,7 +66,17 @@ class Post {
             }
         })
     }
-
-
-
+    destroy() {
+        return new Promise(async(resolve, reject) => {
+            try {
+                const db = await init()
+                await db.collection("posts").deleteOne({ _id: ObjectId(this.id) })
+                resolve("Post was deleted")
+            }catch(err){
+                reject("Post could not be deleted")
+            }
+        })
+    }
 }
+
+module.exports = Post;
