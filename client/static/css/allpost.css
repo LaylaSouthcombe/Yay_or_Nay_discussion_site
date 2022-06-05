@@ -4,6 +4,41 @@
     box-sizing: border-box;
 }
 
+ul {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 15px;
+}
+
+li {
+    list-style-type: none;
+}
+
+li > a {
+    text-decoration: none;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 30px;
+}
+
+#searchBar {
+    width: 80%;
+    border-radius: 50px;
+    padding: 7px;
+    padding-left: 10px;
+}
+
+#searchBtn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 2px;
+}
+
 #posts {
     display: flex;
     flex-wrap: wrap;
