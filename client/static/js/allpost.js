@@ -103,6 +103,7 @@ const appendModal = function(data) {
     for(let i = 0; i < data.comments.length; i++){
         const comment = document.createElement('p')
         comment.textContent = data.comments[i]
+        comment.className = 'postComment'
         console.log(comment)
         modalComments.appendChild(comment)
     }
@@ -116,10 +117,25 @@ async function getModalData(e){
 
 const closeModal = function() {
     modal.style.display = "none";
-    //clear content
+    clearModalContent()
 }
 
-
+const clearModalContent = function() {
+    modalTitle.textContent = ""
+    modalDate.textContent = ""
+    modalBody.textContent = ""
+    modalAuthor.textContent = ""
+    modalTopic.textContent = ""
+    modalEmoji1.textContent = ""
+    modalEmoji2.textContent = ""
+    modalEmoji3.textContent = ""
+    function removeAllChildNodes(parent) {
+        while (parent.firstChild) {
+            parent.removeChild(parent.firstChild);
+        }
+    }
+    removeAllChildNodes(modalComments)
+}
 
 
 
