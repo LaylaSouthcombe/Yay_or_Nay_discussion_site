@@ -15,8 +15,6 @@ const modalForm = document.getElementById('commentForm')
 const modalTextArea = document.getElementById('commentText')
 
 
-
-console.log(postsDiv)
 function appendPost(data) {
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
@@ -35,7 +33,7 @@ function appendPost(data) {
     const cardText = document.createElement('p')
     cardText.className = 'cardText'
     cardText.textContent = data.body
-    
+
     const interactions = data.interactions
 
     const emoji1 = document.createElement('span')
@@ -55,10 +53,8 @@ function appendPost(data) {
     button4.id = data.id
     button4.textContent = 'Discussion'
     
-    button4.addEventListener('click', openModal)
     button4.addEventListener('click', getModalData)
-    
-   
+    button4.addEventListener('click', openModal)
    
     const emojiGroup = document.createElement('div')
     emojiGroup.className = "emojiGroup"
@@ -67,40 +63,34 @@ function appendPost(data) {
     emojiGroup.appendChild(emoji2)
     emojiGroup.appendChild(commentNum)
     emojiGroup.appendChild(button4)
-    console.log(emojiGroup)
+
     cardBody.appendChild(cardAuthor)
     cardBody.appendChild(cardTitle)
-    console.log(cardTitle)
+
     cardBody.appendChild(cardTopic)
     cardBody.appendChild(cardText)
-    console.log(cardText)
-    cardBody.appendChild(emojiGroup)
-    console.log(cardBody)
-    postsDiv.append(cardBody)
-    
-}
 
+    cardBody.appendChild(emojiGroup)
+
+    postsDiv.append(cardBody)
+}
 
 function appendPosts(data){
     data.posts.forEach(appendPost);
-};
-
-
+}
 
 function getAllPosts(){
     fetch('http://localhost:3000/posts/')
         .then(r => r.json())
         .then(appendPosts)
         .catch(console.warn)
-};
+}
 
-getAllPosts()
+const openModal = function() {
+    modal.style.display = "block";
+}
 
-
-
-async function getModalData(e){
-    const response = await fetch(`http://localhost:3000/posts/${e.target.id}`)
-    const data = await response.json()
+const appendModal = function(data) {
     modalTitle.textContent = data.title
     modalDate.textContent = data.date
     modalBody.textContent = data.body
@@ -113,19 +103,29 @@ async function getModalData(e){
     for(let i = 0; i < data.comments.length; i++){
         const comment = document.createElement('p')
         comment.textContent = data.comments[i]
+        console.log(comment)
         modalComments.appendChild(comment)
     }
+}
 
+async function getModalData(e){
+    const response = await fetch(`http://localhost:3000/posts/${e.target.id}`)
+    const data = await response.json()
+    await appendModal(data)
+}
 
-
-};
 const closeModal = function() {
     modal.style.display = "none";
     //clear content
 }
+
+
+
+
+
+getAllPosts()
+
 modalClose.addEventListener ('click', closeModal)
 
-const openModal = function() {
-    modal.style.display = "block";
-}
+
 
