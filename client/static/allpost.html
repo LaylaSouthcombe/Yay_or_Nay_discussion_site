@@ -27,11 +27,26 @@
     <div id="posts">
     
     </div>
-    
+
     <div id="postModal" class="modal">
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
+            <span class="close">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <span id="modalDate"></span>
+            <p id="modalBody"></p>
+            <p id="modalAuthor"></p>
+            <span id="modalTopic"></span>
+            <span id="modalEmoji1"> &#128077;</span>
+            <span id="modalEmoji2"> &#128078;</span>
+            <span id="modalEmoji3"> &#128172;</span>
+            <div id="modalComments"></div>
+            <div class="commentForm">
+                <form class="commentForm">
+                    <label for="commentSection">Comment</label>
+                    <textarea name="commentText" id="commentText" cols="30" rows="10"></textarea>
+                    <input type="submit" value="Post comment" class="commentButton">
+                </form>
+            </div>
         </div>
     </div>
 </body>

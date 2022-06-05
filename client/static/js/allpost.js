@@ -4,10 +4,17 @@ function appendPost(data) {
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
+    const cardAuthor = document.createElement('span')
+    cardAuthor.textContent = data.author
+
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'cardTitle'
     cardTitle.textContent = data.title
     console.log(data.title)
+    
+    const cardTopic = document.createElement('span')
+    cardTopic.textContent = data.topic
+
     const cardText = document.createElement('p')
     cardText.className = 'cardText'
     cardText.textContent = data.body
@@ -44,8 +51,10 @@ function appendPost(data) {
     emojiGroup.appendChild(commentNum)
     emojiGroup.appendChild(button4)
     console.log(emojiGroup)
+    cardBody.appendChild(cardAuthor)
     cardBody.appendChild(cardTitle)
     console.log(cardTitle)
+    cardBody.appendChild(cardTopic)
     cardBody.appendChild(cardText)
     console.log(cardText)
     cardBody.appendChild(emojiGroup)
@@ -78,7 +87,7 @@ async function getModalData(e){
     const response = await fetch(`http://localhost:3000/posts/${e.target.id}`)
     const data = await response.json()
     console.log(data)
-    
+
 };
 const closeModal = function() {
     modal.style.display = "none";
