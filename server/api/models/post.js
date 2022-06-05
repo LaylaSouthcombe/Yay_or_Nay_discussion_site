@@ -9,10 +9,10 @@ class Post {
         this.author = data.author
         this.topic = data.topic
         this.interactions = {
-            thumbs_up: 0,
-            thumbs_down: 0,
+            thumbs_up: data.interactions.thumbs_up,
+            thumbs_down: data.interactions.thumbs_down,
         }
-        this.comments = []
+        this.comments = data.comments
         this.date = data.date
     }
     static get getAllPosts() {
