@@ -13,7 +13,7 @@ class User {
             try {
                 const db = await init()
                 const usersData = await db.collection('users').find().toArray()
-                const users = usersData.map(r => new User({ ...r, id: r,_id}))
+                const users = usersData.map(r => new User({ ...r, id: r._id}))
                 resolve(users)
             } catch (err) {
                 reject(`Error retrieving users: ${err}`)
