@@ -11,7 +11,6 @@ class Post {
         this.interactions = {
             thumbs_up: 0,
             thumbs_down: 0,
-            meh: 0,
         }
         this.comments = []
         this.date = data.date

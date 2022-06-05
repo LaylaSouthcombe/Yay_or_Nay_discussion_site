@@ -16,17 +16,14 @@ function appendPost(data) {
 
     const emoji1 = document.createElement('span')
     emoji1.className = 'emoji1'
-    emoji1.innerHTML = `&#128293; ${interactions.thumbs_up}`
+    emoji1.innerHTML = `&#128077; ${interactions.thumbs_up}`
     // emoji1.addEventListener('click', addInteraction)
     const emoji2 = document.createElement('span')
     emoji2.className = 'emoji2'
-    emoji2.innerHTML = `&#128151; ${interactions.thumbs_down}`
+    emoji2.innerHTML = `&#128078; ${interactions.thumbs_down}`
     // emoji2.addEventListener('click', addInteraction)
-    const emoji3 = document.createElement('span')
-    emoji3.className = 'emoji3'
-    emoji3.innerHTML = `&#11088; ${interactions.meh}`
-    // emoji3.addEventListener('click', addInteraction)
-    
+    const commentNum = document.createElement("span")
+    commentNum.innerHTML = `&#128172; ${data.comments.length}`
     
     const button4 = document.createElement('button')
     button4.className = 'viewMore'
@@ -36,7 +33,7 @@ function appendPost(data) {
 
     btnGroup.appendChild(emoji1)
     btnGroup.appendChild(emoji2)
-    btnGroup.appendChild(emoji3)
+    btnGroup.appendChild(commentNum)
     btnGroup.appendChild(button4)
     console.log(btnGroup)
     cardBody.appendChild(cardTitle)
