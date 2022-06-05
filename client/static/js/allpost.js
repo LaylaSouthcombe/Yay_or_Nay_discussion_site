@@ -5,7 +5,7 @@ const modalClose = document.getElementsByClassName("close")[0]
 const modalTitle = document.getElementById('modalTitle')
 const modalDate = document.getElementById('modalDate')
 const modalBody = document.getElementById('modalBody')
-const modalAuthor = document.getElementById('modalAuthor')
+const modalUsername = document.getElementById('modalUsername')
 const modalTopic = document.getElementById('modalTopic')
 const modalEmoji1 = document.getElementById('modalEmoji1')
 const modalEmoji2 = document.getElementById('modalEmoji2')
@@ -19,8 +19,8 @@ function appendPost(data) {
     const cardBody = document.createElement('div')
     cardBody.className = 'cardBody'
     
-    const cardAuthor = document.createElement('span')
-    cardAuthor.textContent = data.author
+    const cardUsername = document.createElement('span')
+    cardUsername.textContent = data.username
 
     const cardTitle = document.createElement('h5')
     cardTitle.className = 'cardTitle'
@@ -64,7 +64,7 @@ function appendPost(data) {
     emojiGroup.appendChild(commentNum)
     emojiGroup.appendChild(button4)
 
-    cardBody.appendChild(cardAuthor)
+    cardBody.appendChild(cardUsername)
     cardBody.appendChild(cardTitle)
 
     cardBody.appendChild(cardTopic)
@@ -94,7 +94,7 @@ const appendModal = function(data) {
     modalTitle.textContent = data.title
     modalDate.textContent = data.date
     modalBody.textContent = data.body
-    modalAuthor.textContent = data.author
+    modalUsername.textContent = data.username
     modalTopic.textContent = data.topic
     const interactions = data.interactions
     modalEmoji1.textContent = interactions.thumbs_up
@@ -119,7 +119,7 @@ const clearModalContent = function() {
     modalTitle.textContent = ""
     modalDate.textContent = ""
     modalBody.textContent = ""
-    modalAuthor.textContent = ""
+    modalUsername.textContent = ""
     modalTopic.textContent = ""
     modalEmoji1.textContent = ""
     modalEmoji2.textContent = ""
