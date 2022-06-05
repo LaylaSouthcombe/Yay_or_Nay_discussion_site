@@ -1,4 +1,21 @@
 const postsDiv = document.querySelector("#posts")
+
+const modal = document.getElementById("postModal")
+const modalClose = document.getElementsByClassName("close")[0]
+const modalTitle = document.getElementById('modalTitle')
+const modalDate = document.getElementById('modalDate')
+const modalBody = document.getElementById('modalBody')
+const modalAuthor = document.getElementById('modalAuthor')
+const modalTopic = document.getElementById('modalTopic')
+const modalEmoji1 = document.getElementById('modalEmoji1')
+const modalEmoji2 = document.getElementById('modalEmoji2')
+const modalEmoji3 = document.getElementById('modalEmoji3')
+const modalComments = document.getElementById('modalComments')
+const modalForm = document.getElementById('commentForm')
+const modalTextArea = document.getElementById('commentText')
+
+
+
 console.log(postsDiv)
 function appendPost(data) {
     const cardBody = document.createElement('div')
@@ -79,14 +96,27 @@ function getAllPosts(){
 
 getAllPosts()
 
-const modal = document.getElementById("postModal");
 
-const modalClose = document.getElementsByClassName("close")[0];
 
 async function getModalData(e){
     const response = await fetch(`http://localhost:3000/posts/${e.target.id}`)
     const data = await response.json()
-    console.log(data)
+    modalTitle.textContent = data.title
+    modalDate.textContent = data.date
+    modalBody.textContent = data.body
+    modalAuthor.textContent = data.author
+    modalTopic.textContent = data.topic
+    const interactions = data.interactions
+    modalEmoji1.textContent = interactions.thumbs_up
+    modalEmoji2.textContent = interactions.thumbs_down
+    modalEmoji3.textContent = data.comments.length
+    for(let i = 0; i < data.comments.length; i++){
+        const comment = document.createElement('p')
+        comment.textContent = data.comments[i]
+        modalComments.appendChild(comment)
+    }
+
+
 
 };
 const closeModal = function() {
