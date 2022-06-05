@@ -29,6 +29,10 @@ function appendPost(data) {
     const button4 = document.createElement('button')
     button4.className = 'viewMore'
     button4.textContent = 'Discussion'
+    
+    button4.addEventListener('click', openModel)
+    
+   
    
     const emojiGroup = document.createElement('div')
     emojiGroup.className = "emojiGroup"
@@ -63,3 +67,23 @@ function getAllPosts(){
 };
 
 getAllPosts()
+
+const modal = document.getElementById("postModal");
+
+const modalClose = document.getElementsByClassName("close")[0];
+
+
+
+const closeModel = function() {
+modal.style.display = "none";
+}
+modalClose.addEventListener ('click', closeModel)
+//   window.onclick = function(event) {
+//     if (event.target == modal) {
+//       modal.style.display = "none";
+//     }
+//   }
+
+const openModel = function() {
+    modal.style.display = "block";
+}
