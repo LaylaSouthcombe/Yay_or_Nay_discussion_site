@@ -28,9 +28,11 @@ function appendPost(data) {
     
     const button4 = document.createElement('button')
     button4.className = 'viewMore'
+    button4.id = data.id
     button4.textContent = 'Discussion'
     
-    button4.addEventListener('click', openModel)
+    button4.addEventListener('click', openModal)
+    button4.addEventListener('click', getModalData)
     
    
    
@@ -72,18 +74,19 @@ const modal = document.getElementById("postModal");
 
 const modalClose = document.getElementsByClassName("close")[0];
 
-
-
-const closeModel = function() {
-modal.style.display = "none";
+async function getModalData(e){
+    const response = await fetch(`http://localhost:3000/posts/${e.target.id}`)
+    const data = await response.json()
+    console.log(data)
+    
+};
+const closeModal = function() {
+    modal.style.display = "none";
+    //clear content
 }
-modalClose.addEventListener ('click', closeModel)
-//   window.onclick = function(event) {
-//     if (event.target == modal) {
-//       modal.style.display = "none";
-//     }
-//   }
+modalClose.addEventListener ('click', closeModal)
 
-const openModel = function() {
+const openModal = function() {
     modal.style.display = "block";
 }
+
