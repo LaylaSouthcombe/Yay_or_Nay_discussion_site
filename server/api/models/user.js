@@ -35,11 +35,12 @@ class User {
     }
 
     static findByEmail(email){
-        return new Promise(async (res, rej) => {
+        return new Promise(async (resolve, reject) => {
             try {
                 const db = await init()
                 let userData = await db.collection('users').find({ email: ObjectId(email) }).toArray()
                 let user = new User({...userData[0], email: userData[0].email})
+                console.log(userData)
                 resolve(user)
             } catch (err) {
                 reject(`Error retrieving user: ${err}`)
