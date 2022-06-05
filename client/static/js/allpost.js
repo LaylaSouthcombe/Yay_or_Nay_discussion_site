@@ -115,11 +115,6 @@ async function getModalData(e){
     await appendModal(data)
 }
 
-const closeModal = function() {
-    modal.style.display = "none";
-    clearModalContent()
-}
-
 const clearModalContent = function() {
     modalTitle.textContent = ""
     modalDate.textContent = ""
@@ -137,7 +132,10 @@ const clearModalContent = function() {
     removeAllChildNodes(modalComments)
 }
 
-
+const closeModal = function() {
+    modal.style.display = "none";
+    clearModalContent()
+}
 
 getAllPosts()
 
