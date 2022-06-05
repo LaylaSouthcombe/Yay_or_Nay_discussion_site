@@ -23,24 +23,26 @@ function appendPost(data) {
     emoji2.innerHTML = `&#128078; ${interactions.thumbs_down}`
     // emoji2.addEventListener('click', addInteraction)
     const commentNum = document.createElement("span")
+    commentNum.className = "emoji3"
     commentNum.innerHTML = `&#128172; ${data.comments.length}`
     
     const button4 = document.createElement('button')
     button4.className = 'viewMore'
-    button4.textContent = 'View more'
+    button4.textContent = 'Discussion'
    
-    const btnGroup = document.createElement('div')
+    const emojiGroup = document.createElement('div')
+    emojiGroup.className = "emojiGroup"
 
-    btnGroup.appendChild(emoji1)
-    btnGroup.appendChild(emoji2)
-    btnGroup.appendChild(commentNum)
-    btnGroup.appendChild(button4)
-    console.log(btnGroup)
+    emojiGroup.appendChild(emoji1)
+    emojiGroup.appendChild(emoji2)
+    emojiGroup.appendChild(commentNum)
+    emojiGroup.appendChild(button4)
+    console.log(emojiGroup)
     cardBody.appendChild(cardTitle)
     console.log(cardTitle)
     cardBody.appendChild(cardText)
     console.log(cardText)
-    cardBody.appendChild(btnGroup)
+    cardBody.appendChild(emojiGroup)
     console.log(cardBody)
     postsDiv.append(cardBody)
     
