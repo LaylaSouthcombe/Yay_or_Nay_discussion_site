@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: aqua;
+    padding-top: 30px;
+}
+
+.cardBody {
+    width: 300px;
+    background-color: aliceblue;
+    margin-bottom: 30px;
+    padding: 10px;
+    border-radius: 10px;
+}
